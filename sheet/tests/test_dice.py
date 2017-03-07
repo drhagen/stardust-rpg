@@ -9,7 +9,7 @@ class StatisticsTestCase(TestCase):
         six = DiceFormula.from_str('d6')
         self.assertAlmostEqual(six.mean(), 3.5)
         # Variance from https://stats.stackexchange.com/questions/198025/
-        self.assertAlmostEqual(six.std(), sqrt(105/36))
+        self.assertAlmostEqual(six.std(), sqrt(105 / 36))
 
         six_plus_one = DiceFormula.from_str('d6 + 1')
         self.assertAlmostEqual(six_plus_one.mean(), 4.5)
