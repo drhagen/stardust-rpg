@@ -1,6 +1,5 @@
-import re
-
 from math import sqrt
+import re
 from typing import Tuple
 
 
