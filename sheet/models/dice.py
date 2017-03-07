@@ -1,7 +1,8 @@
 import re
 
-from typing import Tuple
 from math import sqrt
+from typing import Tuple
+
 
 class Dice:
     def __init__(self, sides: int, num_dice: int = 1) -> None:
