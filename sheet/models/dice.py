@@ -1,7 +1,7 @@
 import re
 
 from typing import Tuple
-
+from math import sqrt
 
 class Dice:
     def __init__(self, sides: int, num_dice: int = 1) -> None:
@@ -53,6 +53,22 @@ class DiceFormula:
             return cls(dice_pool=tuple(dice_pool))
         else:
             return cls(dice_pool=tuple(dice_pool), modifier=modifier)
+
+    # The average value of a roll
+    def mean(self):
+        sum = self.modifier
+        for die in self.dice_pool:
+            sum += die.num_dice * (die.sides + 1) / 2
+
+        return sum
+
+    # The standard deviation of a roll
+    def std(self):
+        var = 0
+        for die in self.dice_pool:
+            var += die.num_dice * (die.sides ** 2 - 1) / 12
+
+        return sqrt(var)
 
     def __str__(self) -> str:
         s = ''
